@@ -1,0 +1,1 @@
+Reminder: Your bill for {{ bill.bill_type }} is due soon

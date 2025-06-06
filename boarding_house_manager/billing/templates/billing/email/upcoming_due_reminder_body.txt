@@ -1,0 +1,14 @@
+Dear {{ tenant.full_name }},
+
+This is a friendly reminder that your bill for {{ bill.bill_type }} of {{ bill.amount }} is due on {{ bill.due_date|date:"F d, Y" }}.
+
+Bill Details:
+- Type: {{ bill.bill_type }}
+- Amount: {{ bill.amount }}
+- Due Date: {{ bill.due_date|date:"F d, Y" }}
+- Description: {{ bill.description }}
+
+Please ensure your payment is made on time.
+
+Sincerely,
+The Boarding House Management

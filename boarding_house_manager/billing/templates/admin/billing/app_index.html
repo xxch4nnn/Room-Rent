@@ -1,0 +1,27 @@
+{% extends "admin/app_index.html" %}
+{% load i18n %}
+
+{% block content %}
+  {{ block.super }}
+  {% if perms.billing.view_bill or perms.billing.view_tenant or perms.billing.view_room %}
+  <div class="module">
+      <table>
+          <caption>
+              <a href="#" class="section" title="{% translate "Custom Reports" %}">{% translate "Custom Reports" %}</a>
+          </caption>
+          {% if perms.billing.view_bill and perms.billing.view_payment %}
+          <tr>
+              <th scope="row"><a href="{% url "admin:billing_financial_summary" %}">Financial Summary</a></th>
+              <td>View current financial status including unpaid bills and recent payments.</td>
+          </tr>
+          {% endif %}
+          {% if perms.billing.view_room and perms.billing.view_tenant %}
+          <tr>
+              <th scope="row"><a href="{% url "admin:billing_occupancy_report" %}">Occupancy Report</a></th>
+              <td>View current room occupancy rates and vacant room counts.</td>
+          </tr>
+          {% endif %}
+      </table>
+  </div>
+  {% endif %}
+{% endblock %}
