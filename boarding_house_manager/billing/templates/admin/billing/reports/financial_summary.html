@@ -1,0 +1,32 @@
+{% extends "admin/base_site.html" %}
+{% load static i18n %}
+
+{% block extrastyle %}{{ block.super }}
+    <link rel="stylesheet" type="text/css" href="{% static "admin/css/dashboard.css" %}">
+{% endblock %}
+
+{% block coltype %}colM{% endblock %}
+
+{% block bodyclass %}{{ block.super }} dashboard billing-reports{% endblock %}
+
+{% block breadcrumbs %}
+    <div class="breadcrumbs">
+        <a href="{% url "admin:index" %}">{% translate "Home" %}</a> &rsaquo;
+        <a href="{% url "admin:app_list" app_label=app_label %}">{% translate app_label|capfirst %}</a> &rsaquo;
+        {{ title }}
+    </div>
+{% endblock %}
+
+{% block content %}
+    <div id="content-main">
+        <h1>{{ title }}</h1>
+        <div class="module">
+            <h2>Overall Unpaid Bills</h2>
+            <p>Total amount for all unpaid bills: <strong>{{ total_unpaid_all_time }}</strong></p>
+        </div>
+        <div class="module">
+            <h2>Payments This Month ({{ current_month_name }})</h2>
+            <p>Total amount paid this month: <strong>{{ total_paid_this_month }}</strong></p>
+        </div>
+    </div>
+{% endblock %}

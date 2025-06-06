@@ -1,0 +1,14 @@
+Dear {{ tenant.full_name }},
+
+This email is to inform you that your bill for {{ bill.bill_type }} of {{ bill.amount }}, which was due on {{ bill.due_date|date:"F d, Y" }}, is now overdue.
+
+Bill Details:
+- Type: {{ bill.bill_type }}
+- Amount: {{ bill.amount }}
+- Due Date: {{ bill.due_date|date:"F d, Y" }}
+- Description: {{ bill.description }}
+
+Please make your payment as soon as possible to avoid any further inconveniences.
+
+Sincerely,
+The Boarding House Management
